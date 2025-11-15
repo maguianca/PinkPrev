@@ -1,0 +1,96 @@
+CC:
+=== Clasificare ===
+              precision    recall
+
+      benign       0.78      1.00
+      malign       0.00      0.00
+
+    accuracy
+   macro avg       0.39      0.50
+weighted avg       0.61      0.78
+
+Acuratețe totală: 0.78
+
+--- weighted resampler + criterion = CrossEntropyLoss()
+Epoch 1, Loss: 1.2541
+Epoch 2, Loss: 0.5294
+Epoch 3, Loss: 0.3092
+Epoch 4, Loss: 0.1779
+Epoch 5, Loss: 0.1815
+Epoch 6, Loss: 0.0573
+Epoch 7, Loss: 0.1140
+Epoch 8, Loss: 0.0219
+Epoch 9, Loss: 0.0025
+Epoch 10, Loss: 0.0005
+=== Clasificare ===
+              precision    recall
+
+      benign       0.84      1.00
+      malign       1.00      0.33
+
+    accuracy
+   macro avg       0.92      0.67
+weighted avg       0.88      0.85
+Acuratețe totală: 0.85
+
+4.5 vs 4.6 -  valorile se mutau dintr-o parte in alta, de la malign la benign prin ajustari foarte mici
+
+-- preprocesare  -   transforms.Grayscale(num_output_channels=3),
+
+class_weights = torch.tensor([1.0,1.0]).to(device)
+=== Clasificare ===
+              precision    recall  f1-score   support
+
+      benign       0.85      0.67      0.75        51
+      malign       0.19      0.40      0.26        10
+
+    accuracy                           0.62        61
+   macro avg       0.52      0.53      0.50        61
+weighted avg       0.74      0.62      0.67        61
+
+Acuratețe totală: 0.62
+
+class_weights = torch.tensor([1.0,1.15]).to(device)
+=== Clasificare ===
+              precision    recall  f1-score   support
+
+      benign       0.85      0.86      0.85        51
+      malign       0.22      0.20      0.21        10
+
+    accuracy                           0.75        61
+   macro avg       0.53      0.53      0.53        61
+weighted avg       0.74      0.75      0.75        61
+
+Acuratețe totală: 0.75
+
+adaugam cele maligne de la mammovit
+102 maligne vs 162 benigne acum (+63 maligne)
+
+class_weights = torch.tensor([1.0,1.15]).to(device)
+pentru 10 epoci:
+=== Clasificare ===
+              precision    recall  f1-score   support
+
+      benign       0.85      0.93      0.89        55
+      malign       0.80      0.64      0.71        25
+
+    accuracy                           0.84        80
+   macro avg       0.82      0.78      0.80        80
+weighted avg       0.83      0.84      0.83        80
+
+Acuratețe totală: 0.84
+
+pentru 15 epoci:
+=== Clasificare ===
+              precision    recall  f1-score   support
+
+      benign       0.89      0.73      0.80        55
+      malign       0.57      0.80      0.67        25
+
+    accuracy                           0.75        80
+   macro avg       0.73      0.76      0.73        80
+weighted avg       0.79      0.75      0.76        80
+
+Acuratețe totală: 0.75
+
+
