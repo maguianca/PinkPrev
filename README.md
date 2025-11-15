@@ -15,6 +15,6 @@ ai-projects-pinkprev created by GitHub Classroom
 # Video Prezentare Proiect – PinkPrev
 
 ## Link YouTube
-[Vizualizeaza videoclipul aici](https://youtu.be/OIwK6qrMus8)
+[Vizualizeaza videoclipul aici](https://youtu.be/aNwR3HkGXe8)
 
 ![Copertă Prezentare](https://youtu.be/aNwR3HkGXe8)
